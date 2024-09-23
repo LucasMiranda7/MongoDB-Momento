@@ -37,6 +37,7 @@
   insertedId: ObjectId('66f1890e776deda9f178eec8')
 }
 
+
 > db.funcionarios.find({nome: "Lucas Miranda"})
 {
   _id: ObjectId('66f1890e776deda9f178eec8'),
