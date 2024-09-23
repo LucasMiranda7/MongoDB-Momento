@@ -6,6 +6,7 @@
 1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
 
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe71")})
+
 < 10
 
 2. Inclua suas próprias informações no departamento de Tecnologia da empresa. <br>
@@ -21,12 +22,14 @@
 3. Agora diga, quantos funcionários temos ao total na empresa? <br>
    
 > db.funcionarios.countDocuments()
+
 < 24
 
 
 4. E quanto ao Departamento de Tecnologia? <br>
 
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe74")})
+
 < 6
 
 Qual a média salarial do departamento de tecnologia?
