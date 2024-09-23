@@ -1,7 +1,7 @@
 # MongoDB-Momento
 
-#Contém a base de indicados da empresa Momento para treinar consultas complexas no MongoDB.
-#Vamos fazer algumas perguntas para brincar de análise exploratória de dados com MongoDB. <br>
+# Contém a base de indicados da empresa Momento para treinar consultas complexas no MongoDB.
+# Vamos fazer algumas perguntas para brincar de análise exploratória de dados com MongoDB. <br>
 
 
 1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
