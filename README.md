@@ -15,7 +15,6 @@ foreignField: "_id",
 as: "departamento"}}, 
 {
 $match: {"departamento.nome": "Vendas"}},
-
 {
 $count: "total"}])
 
