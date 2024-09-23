@@ -23,6 +23,7 @@ $count: "total"}])
 2. Inclua suas próprias informações no departamento de Tecnologia da empresa. <br>
 
 > db.funcionarios.insertOne({"nome": "Lucas Miranda", "telefone": "232.567.7777", "email": "luquinhas@gmail.org", "dataAdmissao": "2005-02-19", "cargo": "Web Developer", "salario": 5000, "departamento": ObjectId("85992103f9b3e0b3b3c1fe74")})
+>
 > 
 < {
   acknowledged: true,
