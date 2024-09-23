@@ -3,7 +3,19 @@
 # Contém a base de indicados da empresa Momento para treinar consultas complexas no MongoDB.
 # Vamos fazer algumas perguntas para brincar de análise exploratória de dados com MongoDB.
 
-Quantos funcionarios da empresa Momento trabalham no departamento de vendas?
+Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
+
+> db.funcionarios.aggregate([
+> {
+> $lookup: {
+> from: "departamentos",
+> localField: "departamento",
+>  foreignField: "_id",
+> as: "departamento"}},
+>  {
+> $match: {"departamento.nome": "Vendas"}},
+>  {$count: "total"}])
+< total: 1
 
 Inclua suas próprias informações no departamento de Tecnologia da empresa.
 
