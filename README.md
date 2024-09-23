@@ -10,13 +10,21 @@ Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br
 
 {
 $lookup: { 
+
 from: "departamentos",
+
 localField: "departamento",
+
 foreignField: "_id",
+
 as: "departamento"}}, 
+
 {
+
 $match: {"departamento.nome": "Vendas"}},
+
 {
+
 $count: "total"}])
 
 < total: 1
