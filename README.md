@@ -6,69 +6,15 @@
 
 1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
 
-> db.funcionarios.aggregate([
-  {
-    $lookup: {
-      from: "departamentos",
-      localField: "departamento",
-      foreignField: "_id",
-      as: "departamento"
-    }
-  },
-  {
-    $match: {
-      "departamento.nome": "Vendas"
-    }
-  },
-  {
-    $count: "total"
-  }
-])
-
-< total: 1
 
 2. Inclua suas próprias informações no departamento de Tecnologia da empresa. <br>
-
-> db.funcionarios.insertOne({"nome": "Lucas Miranda", "telefone": "232.567.7777", "email": "luquinhas@gmail.org", "dataAdmissao": "2005-02-19", "cargo": "Web Developer", "salario": 5000, "departamento": ObjectId("85992103f9b3e0b3b3c1fe74")})
->
-> 
-< {
-  acknowledged: true,
-  insertedId: ObjectId('66f1890e776deda9f178eec8')
-}
-
-
-> db.funcionarios.find({nome: "Lucas Miranda"})
-{
-  _id: ObjectId('66f1890e776deda9f178eec8'),
-  nome: 'Lucas Miranda',
-  telefone: '232.567.7777',
-  email: 'luquinhas@gmail.org',
-  dataAdmissao: '2005-02-19',
-  cargo: 'Web Developer',
-  salario: 5000,
-  departamento: ObjectId('85992103f9b3e0b3b3c1fe74')
-}
-
 
 
 3. Agora diga, quantos funcionários temos ao total na empresa?
 
 
-E quanto ao Departamento de Tecnologia?
-> db.funcionarios.aggregate([
-> {
-> $lookup: {
-> from: "departamentos",
-> localField: "departamento",
-> foreignField: "_id",
->  as: "departamento"}},
-> {
-> $match: {"departamento.nome": "Tecnologia"}},
-> {
-> $count: "total"}])
+4. E quanto ao Departamento de Tecnologia?
 
-< 5
 
 Qual a média salarial do departamento de tecnologia?
 
