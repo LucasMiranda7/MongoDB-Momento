@@ -22,9 +22,23 @@ $count: "total"}])
 
 Inclua suas próprias informações no departamento de Tecnologia da empresa.
 
+
 Agora diga, quantos funcionários temos ao total na empresa?
 
+
 E quanto ao Departamento de Tecnologia?
+> db.funcionarios.aggregate([
+> {
+> $lookup: {
+> from: "departamentos",
+> localField: "departamento",
+> foreignField: "_id",
+>  as: "departamento"}},
+> {
+> $match: {"departamento.nome": "Tecnologia"}},
+> {
+> $count: "total"}])
+< 5
 
 Qual a média salarial do departamento de tecnologia?
 
