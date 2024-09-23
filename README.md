@@ -7,6 +7,7 @@
 Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
 
 > db.funcionarios.aggregate([
+
 {
 $lookup: { 
 from: "departamentos",
