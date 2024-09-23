@@ -4,7 +4,7 @@
 #Vamos fazer algumas perguntas para brincar de análise exploratória de dados com MongoDB. <br>
 
 
-Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
+1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas? <br>
 
 > db.funcionarios.aggregate([
 {
@@ -20,10 +20,30 @@ $count: "total"}])
 
 < total: 1
 
-Inclua suas próprias informações no departamento de Tecnologia da empresa.
+2. Inclua suas próprias informações no departamento de Tecnologia da empresa. <br>
+
+> db.funcionarios.insertOne({"nome": "Lucas Miranda", "telefone": "232.567.7777", "email": "luquinhas@gmail.org", "dataAdmissao": "2005-02-19", "cargo": "Web Developer", "salario": 5000, "departamento": ObjectId("85992103f9b3e0b3b3c1fe74")})
+> 
+< {
+  acknowledged: true,
+  insertedId: ObjectId('66f1890e776deda9f178eec8')
+}
+
+> db.funcionarios.find({nome: "Lucas Miranda"})
+{
+  _id: ObjectId('66f1890e776deda9f178eec8'),
+  nome: 'Lucas Miranda',
+  telefone: '232.567.7777',
+  email: 'luquinhas@gmail.org',
+  dataAdmissao: '2005-02-19',
+  cargo: 'Web Developer',
+  salario: 5000,
+  departamento: ObjectId('85992103f9b3e0b3b3c1fe74')
+}
 
 
-Agora diga, quantos funcionários temos ao total na empresa?
+
+3. Agora diga, quantos funcionários temos ao total na empresa?
 
 
 E quanto ao Departamento de Tecnologia?
@@ -38,6 +58,7 @@ E quanto ao Departamento de Tecnologia?
 > $match: {"departamento.nome": "Tecnologia"}},
 > {
 > $count: "total"}])
+
 < 5
 
 Qual a média salarial do departamento de tecnologia?
