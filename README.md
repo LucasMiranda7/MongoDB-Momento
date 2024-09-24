@@ -79,7 +79,23 @@
 
 **10. Quantos funcionários da empresa Momento possuem conjuges?**
 
-**11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?**
+**11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?** <br>
+
+> db.funcionarios.aggregate([
+  {$match:{cargo: {$ne: "CEO"}}},
+  {$group: {
+    "_id": null,
+    "total": {$avg: "$salario"}
+    }
+  }
+])
+
+< {
+  _id: null,
+  total: 9758.181818181818
+}
+
+
 
 **12. Qual o departamento com a maior média salarial?**
 
