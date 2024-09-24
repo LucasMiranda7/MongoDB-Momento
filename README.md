@@ -70,24 +70,25 @@
 }
 
 
-**7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.**
+**7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.** <br>
 
-O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.
 
-Quantos funcionarios a empresa Momento tem agora?
+**8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.**
 
-Quantos funcionários da empresa Momento possuem conjuges?
+**9. Quantos funcionarios a empresa Momento tem agora?**
 
-Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?
+**10. Quantos funcionários da empresa Momento possuem conjuges?**
 
-Qual a média salarial do departamento de tecnologia?
+**11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?**
 
-Qual o departamento com a maior média salarial?
+**12. Qual a média salarial do departamento de tecnologia?**
 
-Qual o departamento com o menor número de funcionários?
+**13. Qual o departamento com a maior média salarial?**
 
-Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?
+**14. Qual o departamento com o menor número de funcionários?**
 
-Qual o produto mais vendido da empresa?
+**15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
 
-Qual o produto menos vendido da empresa?
+**16.Qual o produto mais vendido da empresa?**
+
+**17.Qual o produto menos vendido da empresa?**
