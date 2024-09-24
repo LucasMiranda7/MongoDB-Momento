@@ -38,8 +38,20 @@
 
 
 **5. Qual a média salarial do departamento de tecnologia?** <br>
+> db.funcionarios.aggregate([
+  {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe74")}},
+  {$group: {
+    "_id": null,
+    "media": {$avg: "salario"}
+    }
+  }
+])
 
-
+< {
+  _id: null,
+  media: 4560
+}
+.
 Quanto o departamento de Vendas gasta em salários?
 
 Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.
