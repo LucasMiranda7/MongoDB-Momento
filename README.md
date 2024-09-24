@@ -81,14 +81,12 @@
 
 **11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?**
 
-**12. Qual a média salarial do departamento de tecnologia?**
+**12. Qual o departamento com a maior média salarial?**
 
-**13. Qual o departamento com a maior média salarial?**
+**13. Qual o departamento com o menor número de funcionários?**
 
-**14. Qual o departamento com o menor número de funcionários?**
+**14.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
 
-**15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
+**15.Qual o produto mais vendido da empresa?**
 
-**16.Qual o produto mais vendido da empresa?**
-
-**17.Qual o produto menos vendido da empresa?**
+**16.Qual o produto menos vendido da empresa?**
