@@ -73,7 +73,19 @@
 **7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.** <br>
 
 
-**8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.**
+> db.departamentos.insertOne({_id: ObjectId("85992103f9b3e0b3b3c1fe77"),nome: "Inovacoes", 
+escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
+})
+
+< {
+  acknowledged: true,
+  insertedId: ObjectId('85992103f9b3e0b3b3c1fe77')
+}
+
+
+**8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.** <br>
+
+
 
 **9. Quantos funcionarios a empresa Momento tem agora?**
 
