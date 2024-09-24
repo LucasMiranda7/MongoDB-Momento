@@ -51,10 +51,26 @@
   _id: null,
   media: 4560
 }
-.
-Quanto o departamento de Vendas gasta em salários?
 
-Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.
+
+**6. Quanto o departamento de Vendas gasta em salários?** <br>
+
+> db.funcionarios.aggregate([
+  {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe71")}},
+  {$group: {
+    "_id": null,
+    "media": {$sum: "salario"}
+    }
+  }
+])
+
+< {
+  _id: null,
+  soma: 95100
+}
+
+
+**7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.**
 
 O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.
 
