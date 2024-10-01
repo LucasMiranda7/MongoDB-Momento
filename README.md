@@ -13,14 +13,22 @@
 
 **2. Inclua suas próprias informações no departamento de Tecnologia da empresa.** <br>
 
-
-> db.funcionarios.insertOne({"nome": "Lucas Miranda", "telefone": "534.777.7577", "email": "luquinhas@gmail.org", "dataAdmissao": "2000-12-20", "cargo": "Web Developer", "salario": 5000, "departamento": ObjectId("85992103f9b3e0b3b3c1fe74")})
+```
+> db.funcionarios.insertOne(
+{
+"nome": "Lucas Miranda",
+ "telefone": "534.777.7577",
+ "email": "luquinhas@gmail.org",
+ "dataAdmissao": "2000-12-20",
+"cargo": "Web Developer",
+"salario": 5000,
+"departamento": ObjectId("85992103f9b3e0b3b3c1fe74")})
 
 < {
   acknowledged: true,
   insertedId: ObjectId('66f18ef359a7898acde11741')
 }
-
+```
 
 
 **3. Agora diga, quantos funcionários temos ao total na empresa?** <br>
@@ -38,6 +46,8 @@
 
 
 **5. Qual a média salarial do departamento de tecnologia?** <br>
+
+```
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe74")}},
   {$group: {
@@ -52,9 +62,11 @@
   media: 4560
 }
 
+```
 
 **6. Quanto o departamento de Vendas gasta em salários?** <br>
 
+```
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe71")}},
   {$group: {
@@ -69,10 +81,11 @@
   soma: 95100
 }
 
+```
 
 **7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.** <br>
 
-
+```
 > db.departamentos.insertOne({_id: ObjectId("85992103f9b3e0b3b3c1fe77"),nome: "Inovacoes", 
 escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 })
@@ -82,7 +95,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
   insertedId: ObjectId('85992103f9b3e0b3b3c1fe77')
 }
 
-
+```
 **8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.** <br>
 
 
@@ -93,6 +106,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 
 **11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?** <br>
 
+```
 > db.funcionarios.aggregate([
   {$match:{cargo: {$ne: "CEO"}}},
   {$group: {
@@ -106,7 +120,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
   _id: null,
   total: 9758.18
 }
-
+```
 
 
 **12. Qual o departamento com a maior média salarial?**
