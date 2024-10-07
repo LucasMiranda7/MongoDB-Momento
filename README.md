@@ -229,47 +229,6 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 }
 ```
 **14. Qual o departamento com o menor número de funcionários?** <br>
-- Executivo
-  
-```
-> db.funcionarios.aggregate([
-  {
-    $group: {
-      _id: "$departamento",
-      numeroFuncionarios: { $sum: 1 }
-    }
-  },
-  {
-    $sort: { numeroFuncionarios: 1 } 
-  },
-  {
-    $limit: 1
-  },
-{
-        $lookup: {
-            from: "departamentos", 
-            localField: "_id", 
-            foreignField: "_id", 
-            as: "infoDepartamento"  
-        }
-    },
-    {
-        $unwind: "$infoDepartamento"  
-    },
-    {
-        $project: {
-            _id: 0,  
-            departamento: "$infoDepartamento.nome",  
-            numeroFuncionarios: 1  
-        }
-    }
-])
-
-< {
-  numeroFuncionarios: 1,
-  departamento: 'Executivo'
-}
-```
 
 **15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
 
