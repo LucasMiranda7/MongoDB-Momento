@@ -230,7 +230,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 ```
 
 **14. Qual o departamento com o menor número de funcionários?** <br>
-
+- Executivo (1x funcionario)
 
 ```
 > db.funcionarios.aggregate([
