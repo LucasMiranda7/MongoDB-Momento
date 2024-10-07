@@ -102,12 +102,50 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 ```
 **8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.** <br>
 
+```
+> db.funcionarios.insertMany([{
+'nome':'Lucas Miranda',
+'telefone':'11 950392737',
+'email':'miranda@gmail.com',
+'cargo': 'Desenvolvedor Web',
+'salario': 35000,
+'departamento':ObjectId('5f8b3f3f9b3e0b3b3c1e3e3e')},
+                            {
+'nome': 'Kawan Turchiai',
+'telefone': '11 9374957383',
+'email': 'turchiai@gmail.com',
+'cargo': 'Desenvolvedor Web', 
+'salario': 30000,
+'departamento': ObjectId('5f8b3f3f9b3e0b3b3c1e3e3e')
+}])
 
 
-**9. Quantos funcionarios a empresa Momento tem agora?**
+< {
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6703c5af40321c74b97ce03d'),
+    '1': ObjectId('6703c5af40321c74b97ce03e')
+  }
+}
 
-**10. Quantos funcionários da empresa Momento possuem conjuges?**
+```
 
+**9. Quantos funcionarios a empresa Momento tem agora?** <br>
+- 27 funcionarios
+
+```
+> db.funcionarios.countDocuments()
+
+< 27
+```
+
+**10. Quantos funcionários da empresa Momento possuem conjuges?** <br>
+- 7 funcionarios possuem conjuges.
+```
+> db.funcionarios.countDocuments({"dependentes.conjuge": {$exists: true}})
+
+< 7 
+```
 **11. Qual a média salarial dos funcionários da empresa Momento, excluindo-se o CEO?** <br>
 
 ```
