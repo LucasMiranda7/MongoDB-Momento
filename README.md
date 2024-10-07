@@ -228,10 +228,123 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
   ]
 }
 ```
+
 **14. Qual o departamento com o menor número de funcionários?** <br>
 
-**15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
 
-**16.Qual o produto mais vendido da empresa?**
+```
+> db.funcionarios.aggregate([
+  {
+    $group: {
+      _id: "$departamento",
+      numeroFuncionarios: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { numeroFuncionarios: 1 } 
+  },
+  {
+    $limit: 1
+  },
+{
+        $lookup: {
+            from: "departamentos", 
+            localField: "_id", 
+            foreignField: "_id", 
+            as: "departamentoInfo"  
+        }
+    },
+    {
+        $unwind: "$departamentoInfo"  
+    },
+    {
+        $project: {
+            _id: 0,  
+            departamento: "$departamentoInfo.nome",  
+            numeroFuncionarios: 1  
+        }
+    }
+])
 
-**17.Qual o produto menos vendido da empresa?**
+< {
+  numeroFuncionarios: 1,
+  departamento: 'Executivo'
+}
+```
+
+**15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?** <br>
+- Sabre de Luz (Mace Windu) - Total: 7922.32
+```
+> db.vendas.aggregate([
+{ 
+   $group: {
+    _id:"$produto", total: {$sum: {$multiply: ["$precoUnitario", "$quantidade"]}}
+}
+},
+{
+    $sort: {total: -1}
+},
+{
+     $limit: 1
+}
+])
+
+
+< {
+  _id: 'Sabre de Luz (Mace Windu)',
+  total: 7922.32
+}
+
+```
+
+
+
+
+**16.Qual o produto mais vendido da empresa?** <br>
+- Laço da Verdade (12x)
+```
+> db.vendas.aggregate([
+  {
+    $group: {
+      _id: "$produto",
+      totalVendido: { $sum: "$quantidade" }
+    }
+  },
+  {
+    $sort: { totalVendido: -1 }
+  },
+  {
+    $limit: 1
+  }
+])
+
+< {
+  _id: 'Laço da Verdade',
+  totalVendido: 12
+}
+
+```
+
+**17.Qual o produto menos vendido da empresa?** <br>
+- Uniforme do Superman (2x)
+```
+> db.vendas.aggregate([
+  {
+    $group: {
+      _id: "$produto", 
+      totalVendido: {$sum: "$quantidade" } 
+    }
+  },
+  {
+    $sort: { totalVendido: 1 } 
+  },
+  {
+    $limit: 1 
+  }
+])
+
+< {
+  _id: 'Uniforme do Superman',
+  totalVendido: 2
+}
+```
