@@ -163,14 +163,75 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
   total: 9758.18
 }
 ```
+**12. Qual a média salarial do departamento de tecnologia?** <br>
+- A média salarial é 4.633
+```
+> db.funcionarios.aggregate([
+    {
+        $match: {
+            departamento: ObjectId("85992103f9b3e0b3b3c1fe74")
+        }
+    },
+    {
+        $group: {
+            _id: null,
+            avg_val: { $avg: "$salario" }
+        }
+    }
+])
 
+< {
+  _id: null,
+  avg_val: 4633.333333333333
+}
+```
 
-**12. Qual o departamento com a maior média salarial?**
+**13. Qual o departamento com a maior média salarial?** <br> 
+- Departamento com Maior média salarial é o Executivo.
+```
+> db.funcionarios.aggregate([
+    {
+        "$group": {
+            "_id": "$departamento",
+            "media_salario": { $avg: "$salario" }
+        }
+    },
+    {
+        "$lookup": {
+            "from": "departamentos",
+            "localField": "_id",            
+            'foreignField': "_id",
+            "as": "departamento"
+        }
+    },
+    {
+        "$sort": {"media_salario": -1}
+    },
+    {
+        "$limit": 1
+    },
+    {
+        "$project": {
+            "_id": 0,
+            "media_salario": 1,
+            "departamento.nome": 1
+        }
+    }
+])
 
-**13. Qual o departamento com o menor número de funcionários?**
+< {
+  media_salario: 71000,
+  departamento: [
+    {
+      nome: 'Executivo'
+    }
+  ]
+}
+```
+**14. Qual o departamento com o menor número de funcionários?**
 
-**14.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
+**15.Pensando na relação quantidade e valor unitario, qual o produto mais valioso da empresa?**
 
-**15.Qual o produto mais vendido da empresa?**
+**16.Qual o produto mais vendido da empresa?**
 
-**16.Qual o produto menos vendido da empresa?**
+**17.Qual o produto menos vendido da empresa?**
