@@ -4,12 +4,13 @@
 
 
 **1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas?** <br>
-
-
+ - Trabalham 10 pessoas
+   
+```
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe71")})
 
 < 10
-
+```
 
 **2. Inclua suas próprias informações no departamento de Tecnologia da empresa.** <br>
 
@@ -32,21 +33,24 @@
 
 
 **3. Agora diga, quantos funcionários temos ao total na empresa?** <br>
-   
+   - Total de 24 pessoas
+     
+ ```
 > db.funcionarios.countDocuments()
 
 < 24
-
+```
 
 **4. E quanto ao Departamento de Tecnologia?** <br>
-
+   - Total de 6 pessoas
+```
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe74")})
 
 < 6
-
+```
 
 **5. Qual a média salarial do departamento de tecnologia?** <br>
-
+  - A média salarial é 4.560
 ```
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe74")}},
@@ -65,7 +69,7 @@
 ```
 
 **6. Quanto o departamento de Vendas gasta em salários?** <br>
-
+  - Gasta 95.100
 ```
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe71")}},
