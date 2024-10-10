@@ -14,7 +14,7 @@
 
 **2. Inclua suas próprias informações no departamento de Tecnologia da empresa.** <br>
 
-```
+```js
 > db.funcionarios.insertOne(
 {
 "nome": "Lucas Miranda",
@@ -35,7 +35,7 @@
 **3. Agora diga, quantos funcionários temos ao total na empresa?** <br>
    - Total de 24 pessoas
      
- ```
+ ```js
 > db.funcionarios.countDocuments()
 
 < 24
@@ -43,7 +43,7 @@
 
 **4. E quanto ao Departamento de Tecnologia?** <br>
    - Total de 6 pessoas
-```
+```js
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe74")})
 
 < 6
@@ -51,7 +51,7 @@
 
 **5. Qual a média salarial do departamento de tecnologia?** <br>
   - A média salarial é 4.560
-```
+```js
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe74")}},
   {$group: {
@@ -70,7 +70,7 @@
 
 **6. Quanto o departamento de Vendas gasta em salários?** <br>
   - Gasta 95.100
-```
+```js
 > db.funcionarios.aggregate([
   {$match:{departamento: ObjectId("85992103f9b3e0b3b3c1fe71")}},
   {$group: {
@@ -89,7 +89,7 @@
 
 **7. Um novo departamento foi criado. O departamento de Inovações. Ele será locado no Brasil. Por favor, adicione-o no banco de dados da empresa colocando quaisquer informações que você achar relevantes.** <br>
 
-```
+```js
 > db.departamentos.insertOne({_id: ObjectId("85992103f9b3e0b3b3c1fe77"),nome: "Inovacoes", 
 escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 })
@@ -102,7 +102,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 ```
 **8. O departamento de Inovações está sem funcionários. Inclua alguns colegas de turma nesse departamento.** <br>
 
-```
+```js
 > db.funcionarios.insertMany([{
 'nome':'Lucas Miranda',
 'telefone':'11 950392737',
@@ -128,7 +128,7 @@ escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
   }
 }
 
-```
+```js
 
 **9. Quantos funcionarios a empresa Momento tem agora?** <br>
 - 27 funcionarios
