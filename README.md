@@ -6,7 +6,7 @@
 **1. Quantos funcionarios da empresa Momento trabalham no departamento de vendas?** <br>
  - Trabalham 10 pessoas
    
-```
+```js
 > db.funcionarios.countDocuments({departamento: ObjectId("85992103f9b3e0b3b3c1fe71")})
 
 < 10
